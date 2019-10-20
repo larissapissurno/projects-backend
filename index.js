@@ -50,7 +50,7 @@ server.post('/projects', checkIfProjectAlreadyExists, (req, res) => {
 
   projects.push(project);
 
-  return res.json(projects);
+  return res.send();
 });
 
 server.post('/projects/:id/:tasks', checkIfProjectExists, (req, res) => {
@@ -58,7 +58,7 @@ server.post('/projects/:id/:tasks', checkIfProjectExists, (req, res) => {
 
   req.project.tasks.push(tasks);
 
-  return res.json(projects);
+  return res.send();
 });
 
 server.put('/projects/:id', checkIfProjectExists, (req, res) => {
@@ -66,7 +66,7 @@ server.put('/projects/:id', checkIfProjectExists, (req, res) => {
 
   req.project.title = title;
 
-  return res.json(projects);
+  return res.send();
 });
 
 server.delete('/projects/:id', checkIfProjectExists, (req, res) => {
@@ -76,7 +76,7 @@ server.delete('/projects/:id', checkIfProjectExists, (req, res) => {
 
   projects.splice(projectIndex, 1);
 
-  return res.json(projects)
+  return res.send();
 });
 
 server.listen(3000);
