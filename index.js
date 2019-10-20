@@ -6,10 +6,6 @@ server.use(express.json());
 
 const projects = [];
 
-// POST /projects/:id/tasks: A rota deve receber um campo title e armazenar uma
-// nova tarefa no array de tarefas de um projeto específico escolhido através do
-// id presente nos parâmetros da rota;
-
 function checkIfProjectAlreadyExists(req, res, next) {
   const { id, title } = req.body;
   const project = projects.find(proj => proj.id === id && proj.title === title);
